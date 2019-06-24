@@ -16,3 +16,8 @@
     roles:
       - zuul: zuul/zuul-jobs
     timeout: 1800
+    - nodeset:
+      name: emea
+      nodes:
+      - name: node_emea
+        label: maincentos71
