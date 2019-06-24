@@ -1,0 +1,119 @@
+- pipeline:
+    name: checklabel_emea
+    description: |
+      region1 Newly opened pull requests originating from EMEA enter this pipeline to receive an
+      initial verification test
+    manager: independent
+    trigger:
+      github:
+        - event: pull_request
+          action:
+            - opened
+            - changed
+    start:
+      github:
+        status: pending
+        comment: false
+    success:
+      github:
+        status: 'success'
+        label: 'emea'
+      mysql:
+    failure:
+      github:
+        status: 'success'
+      mysql:
+       
+- pipeline:
+    name: checklabel_nafta
+    description: |
+      region2 Newly opened pull requests originating from NAFTA enter this pipeline to receive an
+      initial verification test
+    manager: independent
+    trigger:
+      github:
+        - event: pull_request
+          action:
+            - opened
+            - changed
+    start:
+      github:
+        status: pending
+        comment: false
+    success:
+      github:
+        status: 'success'
+        label: 'nafta'
+      mysql:
+    failure:
+      github:
+        status: 'success'
+      mysql:
+  
+- pipeline:
+    name: check_emea
+    description: |
+      region1 Newly opened pull requests originating from EMEA enter this pipeline to receive an
+      initial verification test
+    manager: independent
+    trigger:
+      github:
+        - event: pull_request
+          action: labeled
+          label: emea       
+    start:
+      github:
+        status: pending
+        comment: false
+    success:
+      github:
+        status: 'success'
+        label: 'ready-for-merge'
+      mysql:  
+    failure:
+      github:
+        status: 'failure'
+        label: 'failed'
+      mysql:
+
+- pipeline:
+    name: check_nafta
+    description: |
+      region2 Newly opened pull requests originating from NAFTA enter this pipeline to receive an
+      initial verification test
+    manager: independent
+    trigger:
+       github:
+        - event: pull_request
+          action: labeled
+          label: nafta      
+    start:
+      github:
+        status: pending
+        comment: false
+    success:
+      github:
+        status: 'success'
+        label: 'ready-for-merge'
+      mysql:  
+    failure:
+      github:
+        status: 'failure'
+        label: 'failed'
+      mysql:
+ 
+- pipeline:
+    name: gate
+    description: |
+       scheduled on a timer basis for pull requests which have been closed post merge
+    manager: independent   
+    trigger:
+#      github:
+#       - event: pull request
+#         action: closed
+      timer:
+        - time: '10 * * * *'           
+    success:
+      mysql:
+    failure:
+      mysql:
