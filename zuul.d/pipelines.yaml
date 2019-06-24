@@ -17,22 +17,4 @@
       github:
         status: 'success'
         label: 'emea'
-      mysql:       
-- pipeline:
-    name: pullrequest_label
-    description: |
-      after applying label
-    manager: dependent
-    trigger:
-      github:
-        - event: pull_request
-          action:
-            - labeled
-    start:
-      github:
-        status: pending
-        comment: false
-    success:
-      github:
-        status: 'success'
       mysql:
