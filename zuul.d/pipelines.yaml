@@ -23,7 +23,7 @@
     name: pullrequest_label
     description: |
       after applying label
-    manager: independent
+    manager: dependent
     trigger:
       github:
         - event: pull_request
