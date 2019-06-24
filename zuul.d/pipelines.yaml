@@ -39,9 +39,9 @@
         comment: false
     success:
       github:
-        status: 'labelled'
+        status: 'success'
       mysql:
     failure:
       github:
-        status: 'comment failed'
+        status: 'failed'
       mysql:
