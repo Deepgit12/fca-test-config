@@ -32,7 +32,7 @@
       github:
         - event: pull_request
           action:
-            - labelled
+            - labeled
     start:
       github:
         status: pending
