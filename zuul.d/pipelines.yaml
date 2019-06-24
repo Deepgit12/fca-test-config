@@ -17,8 +17,7 @@
       github:
         status: 'success'
         label: 'emea'
-      mysql:
-       
+      mysql:       
 - pipeline:
     name: pullrequest_label
     description: |
