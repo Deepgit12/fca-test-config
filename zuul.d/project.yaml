@@ -1,23 +1,7 @@
 - project:
     name: ^.*$
-    checklabel_emea:
+    check_location:
       jobs: []
-    checklabel_nafta:
-      jobs: []
-    check_emea:
-      jobs: []
-    check_nafta:
-      jobs: []
-#    periodic:
-#      jobs: []
-    gate:
+    pullrequest_label:
       jobs: []
 
-- project:
-    name: zuul-hcl-org/zuul-config
-    check:
-      jobs:
-        - noop
- #   gate:
- #     jobs:
- #      - noop
