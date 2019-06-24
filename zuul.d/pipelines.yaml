@@ -18,10 +18,6 @@
         status: 'success'
         label: 'emea'
       mysql:
-    failure:
-      github:
-        status: 'failed'
-      mysql:
        
 - pipeline:
     name: pullrequest_label
@@ -40,8 +36,4 @@
     success:
       github:
         status: 'success'
-      mysql:
-    failure:
-      github:
-        status: 'failed'
       mysql:
