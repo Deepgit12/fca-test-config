@@ -2,6 +2,4 @@
     name: ^.*$
     check_location:
       jobs: []
-    pullrequest_label:
-      jobs: []
 
